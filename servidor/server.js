@@ -8,6 +8,8 @@ var https = require('https');
 // express app
 const app = express();
 
+app.set('view engine', 'ejs');
+
 // puerto
 const port = process.env.PORT || 5000;
 
@@ -18,7 +20,19 @@ app.use(cors())
 
 // ruta raiz
 app.get('/', (req, res) => {
-  res.send("Hola! yo soy la API en Node.js");
+  
+  // res.send("Hola! yo soy la API en Node.js");
+
+  var rutas = [
+    { nombre: 'Empleados', ruta: "/api/v1/puestos", id: 1},
+    { nombre: 'Puestos', ruta: "/api/v1/empleados", id: 2},
+    { nombre: 'Buscar por Nombre', ruta: "/api/v1/empleados/buscarpornombre/mar", id: 3},
+  ];
+
+  res.render('pages/index', {
+    rutas: rutas,
+  });
+
 });
 
 // rutas

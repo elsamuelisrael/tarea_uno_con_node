@@ -1,0 +1,51 @@
+<div id="idcover" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+        <div>
+            <h3 class="float-md-start mb-0">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalenviarpape"class="btn btn-lg btn-secondary fw-bold border-white bg-white"> unir </a>
+            </h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link active" aria-current="page" href="#">inicio</a>
+                <a class="nav-link" href="#">opciónx</a>
+                <a class="nav-link" href="#">opcióny</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="px-3">
+        <!-- <h1>Lorem Ipsum.</h1> -->
+        <p class="lead">Lorem Ipsum. Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido
+            del texto de un sitio mientras que mira su diseño. Ahora estoy sobre Node.js usando EJS</p>
+        <!-- <p class="lead">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modalenviarpape"
+                class="btn btn-lg btn-secondary fw-bold border-white bg-white"> click aquí </a>
+        </p> -->
+
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <% rutas.forEach(function(rut) { %>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne<%= rut.id %>" aria-expanded="false" aria-controls="flush-collapseOne<%= rut.id %>">
+                            <%= rut.nombre %>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne<%= rut.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <code>
+                                <a href="https://cuatroymedio.net:5000<%= rut.ruta %>" target="_blanck"> Ruta en la API es: <%= rut.ruta %></a>
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+
+    </main>
+
+    <footer class="mt-auto text-white-50">
+        <p> Lorem Ipsum es simplemente el texto de relleno </p>
+    </footer>
+
+</div>
