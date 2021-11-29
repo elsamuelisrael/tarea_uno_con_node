@@ -1,4 +1,4 @@
-## tarea2aplicacionweb
+## tarea1aplicacionweb
 tarea #1 para la materia Ingeniería y Desarrollo en la Web se uso nodejs, express y mariadb
 
 ### Author : Samuel Israel Azcarraga Velazquez
