@@ -18,6 +18,10 @@ la aplicacion de ejecutar en el puerto 5000 (http://localhost:5000)
 
 #########################################################################
 
+Pagina de la API
+
+  https://cuatroymedio.net:5000/
+
 Aplicación (cliente) desplegada en un servidor externo de AWS 
 
   https://cuatroymedio.net/test/maestria/ingydesweb/tarea1/clientenode/
