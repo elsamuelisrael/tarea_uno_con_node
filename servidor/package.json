@@ -1,0 +1,33 @@
+{
+  "name": "tarea2aplicacionweb",
+  "version": "1.0.0",
+  "description": "aplicación crud api usando node, express and mariadb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "mysql",
+    "api",
+    "restfulapi",
+    "javascript",
+    "es6"
+  ],
+  "author": "Samuel",
+  "license": "Apache",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "funding": "^0.0.0",
+    "https": "^1.0.0",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}

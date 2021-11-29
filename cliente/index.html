@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="imgs/icon.png">
+
+    <title></title>
+
+    <style>
+        
+        /* .btn:focus,
+        .btn:active {
+            outline: none !important;
+            box-shadow: none;
+        } */
+
+        .blur { 
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px); 
+            filter: blur(3px);
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .rounded-4 { border-radius: .5rem; }
+        .rounded-5 { border-radius: .75rem; }
+        .rounded-6 { border-radius: 1rem; }
+
+        .modal-sheet .modal-dialog {
+            width: 380px;
+            transition: bottom .75s ease-in-out;
+        }
+        
+        .modal-sheet .modal-footer {
+            padding-bottom: 2rem;
+        }
+
+        .modal-alert .modal-dialog {
+            width: 380px;
+        }
+
+        .border-right { border-right: 1px solid #eee; }
+
+        .modal-tour .modal-dialog {
+            width: 380px;
+        }
+
+    </style>
+
+</head>
+
+<body class="text-white bg-dark">
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                unir
+                <!-- <span id="elcargador" class="spinner-grow spinner-grow-sm text-success" role="status" aria-hidden="true"></span> -->
+                <!-- <div id="elcargador" class="spinner-grow" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div> -->
+                <!-- <div id="elcargador" class="spinner-border spinner-border-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#modalNuevo" href="#">Nuevo</a>
+                    </li>
+                    <!--<li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li> -->
+                </ul>
+                <div class="d-flex">
+                    
+                    <!-- <input id="campobuscar" onkeyup="testpress(this)" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button> -->
+
+                    <div id="formbuscar" class="form-group">
+                        <!-- <label for="campopass">Contraseña</label> -->
+                        <div class="input-group">
+                            <input id="campobuscar" type="text" class="form-control" placeholder="Buscar">
+                            <span onclick="cargainicio();" style="cursor: pointer;" class="input-group-text"><i class="fa fa-times" aria-hidden="true"></i></span>
+                            <span id="cuantosresultados" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                10
+                            </span>
+                        </div>
+                        <small id="passayuda" class="form-text text-white"></small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main style="margin-top: 75px;" class="container">
+
+        <!-- div class="bg-success p-5 rounded">
+            <h1>Navbar example</h1>
+            <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll,
+                it will remain fixed to the top of your browser’s viewport.</p>
+
+            <div class="container bg-primary text-white text-center rounded">
+                <div class="row">
+                    <div class="col">
+                        Column
+                    </div>
+                    <div class="col">
+                        Column
+                    </div>
+                    <div class="col">
+                        Column
+                    </div>
+                </div>
+            </div>
+
+        </div> -->
+
+        <br />
+
+        <!-- <div class="container bg-success text-white text-center rounded">
+            <div class="row">
+                <div class="col">
+                    Column
+                </div>
+                <div class="col">
+                    Column
+                </div>
+                <div class="col">
+                    Column
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div id="elcargador" class="d-flex align-items-center">
+            <strong>Cargando...</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+        </div> -->
+
+        <!-- <div class="container">
+            <div class="clearfix">
+                <strong>&nbsp;</strong>
+                <div id="elcargador" class="spinner-border spinner-border-sm float-end" role="status">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="d-flex align-items-center fs-4">
+            <strong>&nbsp;</strong>
+            <div id="elcargador" class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+        </div>
+        
+        <br/>
+
+        <div id="divlalista" class="list-group text-dark bg-dark">
+
+            
+            <div id="divlalistaacordion" class="accordionz">
+                <!-- -->
+            </div>
+
+            <div><br/><br/></div>
+
+        </div>
+
+        <nav id="paginacion" style="margin-top: 20px;" aria-label="Page navigation example">
+            <ul id="listadepaginas" class="pagination justify-content-center">
+                <!-- -->
+            </ul>
+        </nav>
+
+        <div id="modalEditar" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div id="modalEditarcontenido" class="modal-content rounded-5 shadow">
+                    <div class="modal-header p-5 pb-4 border-bottom-0">
+                        <h5 class="modal-title text-dark">Editar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-5 pt-0">
+        
+                        <form class="">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-4" id="floatingInputNombre" placeholder="Nombre">
+                                <label class="text-dark" for="floatingInputNombre">Nombre</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-4" id="floatingInputAP" placeholder="Apellido Paterno">
+                                <label class="text-dark" for="floatingInputAP">Apellido Paterno</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-4" id="floatingInputAM" placeholder="Apellido Materno">
+                                <label class="text-dark" for="floatingInputAM">Apellido Materno</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-4" id="floatingInputEmail" placeholder="Email">
+                                <label class="text-dark" for="floatingInputEmail">Email</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select id="selectPuestos" class="form-select"></select>
+                            </div>
+
+                        </form>
+        
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                        <button 
+                            id="btnEditar"
+                            data-paglax="0"
+                            data-pagelid="0"
+                            data-acordionorigen="0"
+                            data-elid="0"
+                            data-buscar="false"
+                            data-elindex="0"
+                            data-puestoid="0"
+                            data-puestonombre="0"
+                            onclick="editarEmpleado(this.dataset);"
+                            type="button"
+                            class="btn btn-primary"
+                        > Guardar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalNuevo" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div id="modalNuevocontenido" class="modal-content rounded-5 shadow">
+                    <div class="modal-header p-5 pb-4 border-bottom-0">
+                        <h5 class="modal-title text-dark">Nuevo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-5 pt-0">
+        
+                        <form id="formaNuevo" class="">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-4" id="floatingInputNombreMnuevo" placeholder="Nombre">
+                                <label class="text-dark" for="floatingInputNombreMnuevo">Nombre</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-4" id="floatingInputAPMnuevo" placeholder="Apellido Paterno">
+                                <label class="text-dark" for="floatingInputAPMnuevo">Apellido Paterno</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-4" id="floatingInputAMMnuevo" placeholder="Apellido Materno">
+                                <label class="text-dark" for="floatingInputAMMnuevo">Apellido Materno</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-4" id="floatingInputEmailMnuevo" placeholder="Email">
+                                <label class="text-dark" for="floatingInputEmailMnuevo">Email</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select id="selectPuestosMnuevo" class="form-select"></select>
+                            </div>
+                        </form>
+        
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="nuevoEmpleado();" type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalmensaje" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true" aria-labelledby="modalmensajeLabel22">
+            <div class="modal-dialog modal-dialog-centered">
+                <div id="contenidomodal" class="modal-content">
+        
+                    <div id="modalmensajeheader" class="modal-header bg-info text-dark">
+                        <h5 class="modal-title" id="modalmen sajeLabel22"><i class="bi bi-info-circle-fill"></i>unir</h5>
+                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                    </div>
+                    <div id="contenidomodalmensaje" class="modal-body text-center">
+                        <!-- -->
+                        <!-- <h5>¿Realmente desea eliminar este artículo de su carrito?</h5> -->
+                    </div>
+        
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                          <button type="button" class="btn btn-primary">Iniciar</button> -->
+                        <br />
+                        <br />
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalmensajeeliminar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true" aria-labelledby="modalmensajeeliminarLabel22">
+            <div class="modal-dialog modal-dialog-centered">
+                <div id="divcontenidomodal" class="modal-content">
+        
+                    <div id="modalmensajeeliminarheader" class="modal-header bg-danger text-white">
+                        <h5 class="modal-title" id="modalmensajeeliminarLabel22"><i class="bi bi-info-circle-fill"></i>unir</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="contenidomodalmensajeeliminar" class="modal-body text-center">
+                        <!-- -->
+                    </div>
+        
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button
+                            id="btnConfirmaeliminar"
+                            data-elid="0"
+                            data-index="0"
+                            data-nombreacordion="0"
+                            data-nombre="0"
+                            onclick="confirmaEliminar(this.dataset);" 
+                            type="button"
+                            class="btn btn-danger">
+                            Confirmar
+                        </button>
+                        <br />
+                        <br />
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div style="--bs-bg-opacity: .75;" class="toast-header bg-dark text-white">
+                    <img src="imgs/icon.png" width="16px;" class="rounded me-2" alt="...">
+                    <strong class="me-auto">UNIR</strong>
+                    <small>ahora</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body text-dark">
+                    <p id="mensajeliveToast">xxx</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/eljotaese.js"></script>
+
+    <script>
+
+        document.getElementById("elcargador").style.display = 'none';
+        document.getElementById("cuantosresultados").style.display = 'none';
+
+        $(function () {
+
+            //carga_lista();
+            $('#elcargador').hide();
+            $('#cuantosresultados').hide();
+
+            cargainicio();
+
+            $("#liveToast").toast({
+                delay: 3000,
+                animation: true
+            });
+
+            $("#campobuscar").val('');
+
+        });
+
+    </script>
+
+</body>
+
+</html>
