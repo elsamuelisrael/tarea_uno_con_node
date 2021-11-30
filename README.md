@@ -3,8 +3,8 @@ tarea #1 para la materia Ingeniería y Desarrollo en la Web se uso nodejs, expre
 
 ### Author : Samuel Israel Azcarraga Velazquez
 
-### `MariaDB configuration`
-la configiracion de la DB esta en  `config/db.config.js`
+### `MariaDB configuración`
+la configuración de la DB esta en  `config/db.config.js`
 
 Para ejecutar el proyecto:
 
