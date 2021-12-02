@@ -14,7 +14,7 @@ Esto instalara las dependencias `node_modules`
 
 ### `node server.js` o `nodemon start` o `npm start`
 
-la aplicacion de ejecutar en el puerto 5000 (http://localhost:5000)
+la aplicacion se ejecutara en el puerto 5000 (http://localhost:5000)
 
 #########################################################################
 
