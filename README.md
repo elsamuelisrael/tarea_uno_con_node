@@ -8,7 +8,7 @@ la configuración de la DB esta en  `config/db.config.js`
 
 Para ejecutar el proyecto:
 
-### `npm install`
+### `cd server, npm install`
 
 Esto instalara las dependencias `node_modules`
 
